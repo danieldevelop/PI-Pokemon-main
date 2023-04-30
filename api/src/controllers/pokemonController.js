@@ -19,12 +19,10 @@ const getPokemonApi = async () => {
     return arrPockemon;
 }
 
-
 const getPokemonsDb = async () => {
     const pokemons = await Pokemon.findAll();
     return pokemons;
 }
-
 
 const getAllPokemons = async () => {
     const apiPokemons = await getPokemonApi();
@@ -35,6 +33,33 @@ const getAllPokemons = async () => {
 }
 
 
+
+
+
+
+
+
+
+
+
+const getPokemonById = async (id) => {
+    if (isNaN(id)) {
+        return await Pokemon.findByPk(id);
+    }
+
+    const pokeApi = (await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)).data;
+    return {
+        id: pokeApi.id,
+        name: pokeApi.name,
+        image: pokeApi.sprites.other.dream_world.front_default,
+        types: pokeApi.types.map(type => type.type.name),
+    };
+};
+
+
+
+
 module.exports = {
     getAllPokemons,
+    getPokemonById,
 }
