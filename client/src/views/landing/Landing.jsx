@@ -1,15 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import style from "./landing.module.css";
 
 const Landing = () => {
     return (
-        <div>
-            <h1>!Bievenido a Pokemon GO!</h1>
-            <p>Encuentra a todos tus personajes aquí...</p>
+        <section className={style.landing}>
+            <div className={style.container}>
 
-            <Link to="/home">Go to home</Link>
-        </div>
+                <div className={style.landing_group}>
+                    <h1 className={style.landing_title}>¡Bievenido a Pokemon GO!</h1>
+                    <p className={style.landing_leyend}>Tus personajes favoritos aquí...</p>
+                </div>
+
+                <Link to="/home" className={style.landing_link}>Ingresar</Link>
+
+            </div>    
+        </section>
     )
 }
 
