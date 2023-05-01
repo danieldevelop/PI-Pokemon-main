@@ -1,0 +1,33 @@
+.bar {
+    background-color: #0B2828;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.bar_collap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.menu_link {
+    color: #F1FCFB;
+    text-decoration: none;
+    cursor: default;
+}
+
+.menu_link:hover {
+    color: #F1FCFB;
+    text-decoration: underline;
+}
+
