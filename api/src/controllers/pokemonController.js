@@ -24,12 +24,18 @@ const getPokemonsDb = async () => {
     return pokemons;
 }
 
-const getAllPokemons = async () => {
+const getAllPokemons = async (name) => {
     const apiPokemons = await getPokemonApi();
     const dbPokemons = await getPokemonsDb();
 
     const allPokemons = apiPokemons.concat(dbPokemons);
-    return allPokemons;
+
+    if (name) {
+        const pokeName = allPokemons.filter(poke => poke.name.toLowerCase().includes(name.toLowerCase()));
+        if (pokeName.length) return pokeName;
+    } else {
+        return allPokemons;
+    }
 }
 
 
