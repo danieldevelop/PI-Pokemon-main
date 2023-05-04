@@ -1,7 +1,8 @@
 import axios from 'axios';
 import  {
     ALL_POKEMONS,
-    BY_NAME
+    BY_NAME,
+    BY_ID
 } from "./actions-types";
 
 
@@ -26,5 +27,16 @@ export const getByName = (name) => {
         } catch (err) {
             alert(`!Ups el pokemon ${name} no existe`);
         }
+    };
+};
+
+export const getById = (id) => {
+    return async (dispatch) => {
+        const response = (await axios.get(`http://localhost:3001/pokemon/${id}`)).data;
+
+        return dispatch({
+            type: BY_ID,
+            payload: response,
+        });
     };
 };
