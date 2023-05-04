@@ -4,7 +4,7 @@ const axios = require('axios');
 
 const getPokemonApi = async () => {
     const arrPockemon = []; // para agregar los pokemones de la api
-    const pockemons = (await axios.get('https://pokeapi.co/api/v2/pokemon?limit=5')).data.results;
+    const pockemons = (await axios.get('https://pokeapi.co/api/v2/pokemon/')).data.results;
 
     for (let pokemon of pockemons) {
         const el = (await axios.get(pokemon.url)).data;
