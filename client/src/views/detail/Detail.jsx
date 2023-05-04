@@ -28,7 +28,8 @@ const Detail = (props) => {
             
             <div className={style.detail_content}>
                 {
-                    (detailPokemon.id) ? <article className={style.detail_info}>
+                    (detailPokemon.id) 
+                    ? <article className={style.detail_info}>
                         <h2>{name}</h2>
                         <h3>Types:</h3>
                         <ul>
@@ -38,7 +39,19 @@ const Detail = (props) => {
                                 );
                             })}
                         </ul>
-                    </article> : <h3>Error, el pokemon con id {id} no fue encontrado</h3>
+                    </article> 
+                    : <h3 style={{
+                            "textAlign": "center", 
+                            "color": "#fff", 
+                            "width": "fit-content", 
+                            "backgroundColor": "#247BC5",
+                            "padding": "10px",
+                            "borderRadius": "5px",
+                            "margin": "0 auto",
+                            "fontWeight": "500"
+                        }}>
+                        Error, el pokemon con id {id} no fue encontrado
+                    </h3>
                 }
 
                 <section className={style.detail_img}>
