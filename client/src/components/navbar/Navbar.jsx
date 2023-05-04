@@ -5,7 +5,7 @@ import logo from "../../assets/img/logo.png";
 import style from "./navbar.module.css";
 
 
-const Navbar = () => {
+const Navbar = ({ handleChange, handleSubmit }) => {
     return (
         <nav className={style.bar}>
             <div className={style.container}>
@@ -20,9 +20,9 @@ const Navbar = () => {
                     </ul>
 
 
-                    <form className={style.form_menu}>
+                    <form className={style.form_menu} onChange={handleChange}>
                         <input type="search" placeholder="Search" />
-                        <button type="button">Search</button>
+                        <button type="submit" onClick={handleSubmit}>Search</button>
                     </form>
 
                 </section>
