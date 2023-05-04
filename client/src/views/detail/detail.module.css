@@ -1,0 +1,35 @@
+.detail_title {
+    text-align: center;
+    border: 2px solid rgba(36, 123, 197, .9);
+    background: #fff;
+    padding: .5rem;
+    width: 30rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    border-top-right-radius: 50px;
+}
+
+.detail_content {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.detail_info {
+    background-color: #fff;
+    width: 30rem;
+    border: 2px solid rgba(36, 123, 197, .9);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.detail_info h2 {
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0 0 1rem 0;
+    text-transform: capitalize;
+}
+
+.detail_img img {
+    width: 325px;
+}

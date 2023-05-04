@@ -1,0 +1,24 @@
+.notfound {
+    color: #fff;
+    text-align: center;
+    background: #0B2828;
+    width: 300px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.notfound h1 {
+    margin: 0 0 .5rem 0;
+    font-weight: 500;
+}
+
+.notfound a {
+    color: #fff;
+    text-decoration: none;
+    cursor: default;
+}
+
+.notfound a:hover {
+    text-decoration: underline;
+}

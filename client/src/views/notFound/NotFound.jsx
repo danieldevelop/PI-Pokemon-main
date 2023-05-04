@@ -1,12 +1,13 @@
 import React from "react";
-
 import { Link } from "react-router-dom";
+
+import style from "./notFound.module.css";
 
 const NotFound = () => {
     return (
-        <div>
+        <div className={style.notfound}>
             <h1>404 Not Found</h1>
-            <Link to="/home">Go to Home</Link>
+            <Link to="/home">&lt;- Go to Home</Link>
         </div>
     )
 };

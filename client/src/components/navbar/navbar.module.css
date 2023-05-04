@@ -24,6 +24,7 @@
     color: #F1FCFB;
     text-decoration: none;
     cursor: default;
+    letter-spacing: 1px;
 }
 
 .menu_link:hover {
@@ -31,3 +32,36 @@
     text-decoration: underline;
 }
 
+
+
+
+.form_menu > input {
+    background: none;
+    border: 2px solid #247BC5;
+    cursor: default;
+    padding: .4rem 1rem;
+    font-size: 15px;
+    color: #F1FCFB;
+    font-weight: 500;
+    letter-spacing: 1px;
+    width: 180px;
+    border-radius: 5px;
+    margin-right: 6px;
+}
+
+.form_menu > button {
+    background: none;
+    border: 2px solid #247BC5;
+    cursor: default;
+    padding: .4rem 1rem;
+    font-size: 15px;
+    color: #F1FCFB;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+
+.form_menu > button:hover {
+    background: #247BC5;
+    color: #fff;
+}

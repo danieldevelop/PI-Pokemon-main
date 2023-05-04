@@ -6,6 +6,8 @@ import { getPokemons, getByName } from "../../redux/actions";
 import Navbar from "../../components/navbar/Navbar";
 import Cards from "../../components/cards/Cards";
 
+import style from "./home.module.css";
+
 const Home = () => {
     const dispatch = useDispatch();
     const allPokemons = useSelector((state) => state.allPokemons);
@@ -29,8 +31,10 @@ const Home = () => {
     };
 
     return (
-        <div>
+        <div className={style.home}>
             <Navbar handleChange={handleChange} handleSubmit={handleSubmit}/>
+            <h1 className={style.home_title}>¡Pokemons GO!</h1>
+
             <Cards allPokemons={allPokemons} />
         </div>
     )
