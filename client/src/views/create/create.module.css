@@ -1,0 +1,52 @@
+.addpokemon_title {
+    background: #2377BE;
+    color: #fff;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 1.2rem auto;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+
+.addpokemon_form {
+    background-color: #fff;
+    border: 2px solid #2377BE;
+    /* width: 550px; */
+    width: fit-content;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 1.2rem auto;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form_group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form_group > label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form_group > input {
+    padding: 0 10px;
+}
+
+.form_group > input, .form_group > select {
+    border-radius: 5px;
+    border: 1px solid #2377BE;
+    outline: none;
+    font-size: 1rem;
+    color: #0e497a;
+    height: 30px;
+}
