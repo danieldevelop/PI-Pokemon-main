@@ -4,6 +4,7 @@ import  {
     BY_NAME,
     BY_ID,
     CREATE_POKEMON,
+    ALL_TYPES,
 } from "./actions-types";
 
 
@@ -52,4 +53,15 @@ export const createPokemon = (pokemon) => {
             payload: response,
         });
     };
-}
+};
+
+export const getTypes = () => {
+    return async (dispatch) => {
+        const response = (await axios.get("http://localhost:3001/types")).data;
+
+        return dispatch({
+            type: ALL_TYPES,
+            payload: response,
+        });
+    };
+};

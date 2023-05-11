@@ -1,16 +1,19 @@
-import { React, useState }  from 'react';
+import { React, useState, useEffect }  from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import style from "./create.module.css";
 import validate from "./validate";
-import { createPokemon } from '../../redux/actions';
+import { createPokemon, getTypes } from '../../redux/actions';
 
 import Navbar from "../../components/navbar/Navbar";
 
 
 const Create = () => {
     const dispatch = useDispatch();
+
+    // traemos los tipos de pokemon del store
+    const types = useSelector((state) => state.types);
 
     const [pokemon, setPokemon] = useState({
         name: "",
@@ -80,6 +83,12 @@ const Create = () => {
                     <div className={style.form_group}>
                         <label htmlFor="type">Type:</label>
                         <input type="text" name="type" id="type" onChange={handleChange} value={pokemon.type}/>
+                        {/* <select name="type" id="type" onChange={handleChange} value={pokemon.type}>
+                            <option value="-1">Select a type</option>
+                            {types.map((type) => (
+                                <option key={type.id} value={type.name}>{type.name}</option>
+                            ))}
+                        </select> */}
                         {error.type && <p className={style.error}>{error.type}</p>}
                     </div>
                 </div>
