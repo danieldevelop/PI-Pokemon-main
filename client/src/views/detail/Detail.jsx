@@ -34,12 +34,12 @@ const Detail = () => {
                         <h2>{detailPokemon.name}</h2>
 
                         <p>ID: {detailPokemon.id}</p>
-                        <p>life: {detailPokemon.life}</p>
-                        <p>attack: {detailPokemon.attack}</p>
-                        <p>defense: {detailPokemon.defense}</p>
-                        <p>speed: {detailPokemon.speed}</p>
-                        <p>height: {detailPokemon.height}</p>
-                        <p>weight: {detailPokemon.weight}</p>
+                        <p>life: {detailPokemon.life}%</p>
+                        <p>attack: {detailPokemon.attack}%</p>
+                        <p>defense: {detailPokemon.defense}%</p>
+                        <p>speed: {detailPokemon.speed}%</p>
+                        <p>height: {detailPokemon.height}m</p>
+                        <p>weight: {detailPokemon.weight}m</p>
                         <h3>Types:</h3>
                         <ul>
                             {detailPokemon.types?.map((type, index) => {
