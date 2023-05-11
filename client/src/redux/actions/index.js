@@ -2,7 +2,8 @@ import axios from 'axios';
 import  {
     ALL_POKEMONS,
     BY_NAME,
-    BY_ID
+    BY_ID,
+    CREATE_POKEMON,
 } from "./actions-types";
 
 
@@ -40,3 +41,15 @@ export const getById = (id) => {
         });
     };
 };
+
+export const createPokemon = (pokemon) => {
+    console.log(pokemon);
+    return async (dispatch) => {
+        const response = (await axios.post("http://localhost:3001/pokemon/create", pokemon)).data;
+
+        return dispatch({
+            type: CREATE_POKEMON,
+            payload: response,
+        });
+    };
+}

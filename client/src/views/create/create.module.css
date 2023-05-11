@@ -13,8 +13,8 @@
 .addpokemon_form {
     background-color: #fff;
     border: 2px solid #2377BE;
-    /* width: 550px; */
-    width: fit-content;
+    width: 550px;
+    /* width: fit-content; */
     padding: 15px;
     border-radius: 5px;
     margin: 1.2rem auto;
@@ -49,4 +49,11 @@
     font-size: 1rem;
     color: #0e497a;
     height: 30px;
+}
+
+
+.error {
+    color: #8b0000;
+    font-size: 14px;
+    margin-top: 10px;
 }

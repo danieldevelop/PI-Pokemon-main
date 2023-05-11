@@ -1,7 +1,8 @@
 import {
     ALL_POKEMONS,
     BY_NAME,
-    BY_ID
+    BY_ID,
+    CREATE_POKEMON,
 } from "../actions/actions-types";
 
 const initialState = {
@@ -28,6 +29,10 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 detailPokemon: action.payload,
+            };
+        case CREATE_POKEMON:
+            return {
+                ...state,
             };
         default:
             return state;
