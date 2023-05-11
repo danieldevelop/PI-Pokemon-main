@@ -1,10 +1,10 @@
-const { Pokemon } = require('../db');
+const { Pokemon, Type } = require('../db');
 const axios = require('axios');
 
 
 const getPokemonApi = async () => {
     const arrPockemon = []; // para agregar los pokemones de la api
-    const pockemons = (await axios.get('https://pokeapi.co/api/v2/pokemon/')).data.results;
+    const pockemons = (await axios.get('https://pokeapi.co/api/v2/pokemon?limit=150')).data.results;
 
     for (let pokemon of pockemons) {
         const el = (await axios.get(pokemon.url)).data;
@@ -13,6 +13,12 @@ const getPokemonApi = async () => {
             id: el.id,
             name: el.name,
             image: el.sprites.other.dream_world.front_default,
+            life: el.stats[0].base_stat,
+            attack: el.stats[1].base_stat,
+            defense: el.stats[2].base_stat,
+            speed: el.stats[5].base_stat,
+            height: el.height,
+            weight: el.weight,
             types: el.types.map(type => type.type.name),
         });
     };
@@ -20,7 +26,12 @@ const getPokemonApi = async () => {
 }
 
 const getPokemonsDb = async () => {
-    const pokemons = await Pokemon.findAll();
+    const pokemons = await Pokemon.findAll({
+        include: {
+            model: Type,
+            attributes: ['name'],
+        }
+    });
     return pokemons;
 }
 
@@ -50,7 +61,12 @@ const getAllPokemons = async (name) => {
 
 const getPokemonById = async (id) => {
     if (isNaN(id)) {
-        return await Pokemon.findByPk(id);
+        return await Pokemon.findByPk(id, {
+            include: {
+                model: Type,
+                attributes: ['name'],
+            }
+        });
     }
 
     const pokeApi = (await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)).data;
@@ -58,8 +74,29 @@ const getPokemonById = async (id) => {
         id: pokeApi.id,
         name: pokeApi.name,
         image: pokeApi.sprites.other.dream_world.front_default,
+        life: pokeApi.stats[0].base_stat,
+        attack: pokeApi.stats[1].base_stat,
+        defense: pokeApi.stats[2].base_stat,
+        speed: pokeApi.stats[5].base_stat,
+        height: pokeApi.height,
+        weight: pokeApi.weight,
         types: pokeApi.types.map(type => type.type.name),
     };
+};
+
+
+const createPokemonDB = async (id, name, image, life, attack, defense, speed, height, weight ) => {
+    return await Pokemon.create({
+        id,
+        name,
+        image,
+        life,
+        attack,
+        defense,
+        speed,
+        height,
+        weight
+    });
 };
 
 
@@ -68,4 +105,5 @@ const getPokemonById = async (id) => {
 module.exports = {
     getAllPokemons,
     getPokemonById,
+    createPokemonDB,
 }

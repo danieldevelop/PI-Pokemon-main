@@ -1,6 +1,7 @@
 const {
     getAllPokemons,
     getPokemonById,
+    createPokemonDB,
 } = require("../controllers/pokemonController")
 
 
@@ -35,8 +36,26 @@ const getPokemonsByIdHandler = async (req, res) => {
     }
 };
 
+const createPokemonHandler = async (req, res) => {
+    const { id, name, image, life, attack, defense, speed, height, weight } = req.body
+
+    try {
+        if (name && image && life && attack && defense && speed && height && weight) {
+            const response = await createPokemonDB(id, name, image, life, attack, defense, speed, height, weight);
+            return res.status(200).json(response);
+        } else {
+            throw new Error("Faltan datos para crear al pokemon")
+        }
+
+    } catch (err) {
+        return res.status(400).json({message: err.message});
+    }
+}
+
+
 
 module.exports = {
     getPokemonsHandler,
     getPokemonsByIdHandler,
+    createPokemonHandler,
 }

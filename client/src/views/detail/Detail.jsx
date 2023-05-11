@@ -1,6 +1,7 @@
 import { React, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { getById } from "../../redux/actions";
 import Navbar from "../../components/navbar/Navbar";
@@ -8,17 +9,17 @@ import Navbar from "../../components/navbar/Navbar";
 import style from "./detail.module.css";
 
 
-const Detail = (props) => {
+const Detail = () => {
+    const { id } = useParams(); // id del pokemon que viene por url
     const dispatch = useDispatch();
-    const detailPokemon = useSelector((state) => state.detailPokemon);
-    const { name, image, types } = detailPokemon;
-
-
+    
     // Treamos el detalle del pokemon segun su id
-    const id = props.match.params.id;
     useEffect(() => {
-        dispatch(getById(id)); // props.match.params.id
+        dispatch(getById(id)); 
     }, [dispatch, id]);
+    
+    const detailPokemon = useSelector((state) => state.detailPokemon);
+    console.log("detailPokemon: ", detailPokemon);
 
 
     return (
@@ -30,10 +31,18 @@ const Detail = (props) => {
                 {
                     (detailPokemon.id) 
                     ? <article className={style.detail_info}>
-                        <h2>{name}</h2>
+                        <h2>{detailPokemon.name}</h2>
+
+                        <p>ID: {detailPokemon.id}</p>
+                        <p>life: {detailPokemon.life}</p>
+                        <p>attack: {detailPokemon.attack}</p>
+                        <p>defense: {detailPokemon.defense}</p>
+                        <p>speed: {detailPokemon.speed}</p>
+                        <p>height: {detailPokemon.height}</p>
+                        <p>weight: {detailPokemon.weight}</p>
                         <h3>Types:</h3>
                         <ul>
-                            {types?.map((type, index) => {
+                            {detailPokemon.types?.map((type, index) => {
                                 return (
                                     <li key={index}>{type.charAt(0).toUpperCase() + type.slice(1)}</li>
                                 );
@@ -55,7 +64,7 @@ const Detail = (props) => {
                 }
 
                 <section className={style.detail_img}>
-                    <img src={image} alt={name} />
+                    <img src={detailPokemon.image} alt={detailPokemon.name} />
                 </section>
             </div>
             

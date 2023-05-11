@@ -8,6 +8,7 @@ const initialState = {
     allPokemons: [],
     pokemonsCopy: [], // hace una copia de todos los pokemons, con esto podemos volver al estado original
     detailPokemon: [],
+    types: [],
 };
 
 const rootReducer = (state = initialState, action) => {
